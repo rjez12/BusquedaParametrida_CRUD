@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="651.0"
+            prefWidth="700.0"
+            xmlns="http://javafx.com/javafx/17.0.12"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.desarrollo.proyectocrudg3.controller.ProductosController">
+
+   <children>
+      <Label layoutX="14.0" layoutY="22.0"
+             text="Gestión de Productos">
+         <font>
+            <Font name="System Bold Italic" size="23.0"/>
+         </font>
+      </Label>
+
+      <VBox layoutX="14.0" layoutY="56.0"
+            prefHeight="106.0" prefWidth="63.0" spacing="10.0">
+         <children>
+            <Label text="Código"/>
+            <Label text="Precio"/>
+            <Label text="Categoría"/>
+            <Label text="Fecha"/>
+         </children>
+      </VBox>
+
+      <VBox layoutX="77.0" layoutY="50.0"
+            prefHeight="106.0" prefWidth="167.0" spacing="5.0">
+         <children>
+            <TextField fx:id="txtCodigo"/>
+            <TextField fx:id="txtPrecio"
+                       prefHeight="1.0" prefWidth="136.0"/>
+            <ComboBox fx:id="cmbCategoria"
+                      prefHeight="25.0" prefWidth="170.0"/>
+            <DatePicker fx:id="dpFechaCreacion"/>
+         </children>
+      </VBox>
+
+      <VBox layoutX="274.0" layoutY="56.0"
+            prefHeight="117.0" prefWidth="80.0" spacing="10.0">
+         <children>
+            <Label text="Nombre:"/>
+            <Label text="Stock:"/>
+            <Label text="Marca:"/>
+            <Label text="Descripción:"/>
+         </children>
+      </VBox>
+
+      <VBox layoutX="354.0" layoutY="50.0"
+            prefHeight="117.0" prefWidth="167.0" spacing="5.0">
+         <children>
+            <TextField fx:id="txtNombre"/>
+            <TextField fx:id="txtStock"/>
+            <ComboBox fx:id="cmbMarca" prefWidth="150.0"/>
+            <TextField fx:id="txtDescripcion"/>
+         </children>
+      </VBox>
+
+      <HBox layoutX="14.0" layoutY="173.0"
+            prefHeight="34.0" prefWidth="287.0" spacing="5.0">
+         <children>
+            <Button mnemonicParsing="false"
+                    text="Nuevo"
+                    onAction="#limpiarFormulario"/>
+            <Button mnemonicParsing="false"
+                    text="Guardar"
+                    onAction="#guardarProducto"/>
+            <Button mnemonicParsing="false"
+                    text="Actualizar"
+                    onAction="#actualizarProducto"/>
+            <Button mnemonicParsing="false"
+                    text="Eliminar"
+                    onAction="#eliminarProducto"/>
+         </children>
+      </HBox>
+
+      <Line endX="476.0" layoutX="112.0"
+            layoutY="207.0" startX="-100.0"/>
+
+      <Label layoutX="14.0" layoutY="215.0"
+             text="Búsqueda y filtros">
+         <font>
+            <Font name="System Bold Italic" size="19.0"/>
+         </font>
+      </Label>
+
+      <VBox layoutX="14.0" layoutY="253.0"
+            prefHeight="64.0" prefWidth="100.0" spacing="10.0">
+         <children>
+            <Label text="Código o nombre:"/>
+            <Label text="Desde:"/>
+            <Label text="Precio mínimo:"/>
+         </children>
+      </VBox>
+
+      <VBox layoutX="114.0" layoutY="253.0"
+            prefHeight="124.0" prefWidth="161.0" spacing="5.0">
+         <children>
+            <TextField fx:id="txtBusqueda"/>
+            <DatePicker fx:id="dpDesde"/>
+            <TextField fx:id="txtPrecioMinimo"/>
+         </children>
+      </VBox>
+
+      <VBox layoutX="287.0" layoutY="243.0"
+            prefHeight="117.0" prefWidth="100.0" spacing="10.0">
+         <children>
+            <Label text="Categoría:"/>
+            <Label text="Hasta:"/>
+            <Label text="Precio máximo:"/>
+            <Label text="Ordenar por:"/>
+         </children>
+      </VBox>
+
+      <VBox layoutX="371.0" layoutY="237.0"
+            prefHeight="156.0" prefWidth="150.0" spacing="5.0">
+         <children>
+            <ComboBox fx:id="cmbFiltroCategoria"
+                      prefWidth="150.0"/>
+            <DatePicker fx:id="dpHasta"/>
+            <TextField fx:id="txtPrecioMaximo"/>
+            <ComboBox fx:id="cmbOrden" prefWidth="150.0"/>
+         </children>
+      </VBox>
+
+      <CheckBox fx:id="chkExistencias"
+                layoutX="12.0" layoutY="342.0"
+                mnemonicParsing="false"
+                text="Solo productos con existencias"/>
+
+      <Button layoutX="12.0" layoutY="365.0"
+              mnemonicParsing="false"
+              text="Buscar"
+              onAction="#buscarProductos"/>
+
+      <Button layoutX="69.0" layoutY="365.0"
+              mnemonicParsing="false"
+              text="Limpiar filtros"
+              onAction="#limpiarFiltros"/>
+
+      <TableView fx:id="tblProductos"
+                 layoutX="14.0" layoutY="411.0"
+                 prefHeight="200.0" prefWidth="653.0">
+         <columns>
+            <TableColumn fx:id="colCodigo"
+                         prefWidth="75.0" text="Código"/>
+            <TableColumn fx:id="colNombre"
+                         prefWidth="75.0" text="Nombre"/>
+            <TableColumn fx:id="colCategoria"
+                         prefWidth="75.0" text="Categoría"/>
+            <TableColumn fx:id="colMarca"
+                         prefWidth="75.0" text="Marca"/>
+            <TableColumn fx:id="colPrecio"
+                         prefWidth="50.33331298828125"
+                         text="Precio"/>
+            <TableColumn fx:id="colStock"
+                         prefWidth="100.33331298828125"
+                         text="Stock"/>
+            <TableColumn fx:id="colFecha"
+                         prefWidth="115.3333740234375"
+                         text="Fecha creación"/>
+         </columns>
+      </TableView>
+   </children>
+</AnchorPane>
